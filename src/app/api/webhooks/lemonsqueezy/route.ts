@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import crypto from "node:crypto";
-//import { Resend } from "resend";
+import { Resend } from "resend";
 
 import WelcomeEmail from "@/emails/welcome-to-pro";
 import { webhookHasMeta } from "@/lib/typeguards";
@@ -12,7 +12,7 @@ import type {
   LemonsqueezyWebhookPayload,
 } from "@/lib/types/lemonsqueezy";
 
-//const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   if (!process.env.LEMONSQUEEZY_WEBHOOK_SECRET) {
@@ -100,7 +100,7 @@ async function processWebhook(webhookEvent: LemonsqueezyWebhookPayload) {
     const email = user.email;
     const name = user.name;
 
-    //await resend.emails.send({
+    await resend.emails.send({
       from: "Kelvin <kelvin@ishortn.ink>",
       to: email!,
       subject: "Welcome to iShortn Pro",

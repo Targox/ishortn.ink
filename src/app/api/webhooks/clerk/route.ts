@@ -1,6 +1,6 @@
 import type { WebhookEvent } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
-//import { Resend } from "resend";
+import { Resend } from "resend";
 import { Webhook } from "svix";
 
 import { env } from "@/env.mjs";
@@ -8,7 +8,7 @@ import WelcomeEmail from "@/lib/email/templates/welcome-email";
 import { db } from "@/server/db";
 import { user } from "@/server/db/schema";
 
-//const resend = new Resend(env.RESEND_API_KEY);
+const resend = new Resend(env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -72,7 +72,7 @@ export async function POST(req: Request) {
     imageUrl: userInfo.avatarUrl,
   });
 
-  //const { error } = await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: "Kelvin <developer@ishortn.ink>",
     to: userInfo.email!,
     subject: "Welcome to iShortn",

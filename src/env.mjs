@@ -16,7 +16,7 @@ export const env = createEnv({
     ),
     GEOLOCATION_API_KEY: z.string().optional(),
     NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
-    //RESEND_API_KEY: z.string().optional(),
+    RESEND_API_KEY: z.string().optional(),
     WEBHOOK_SECRET: z.string().optional(),
     REDIS_URL: z.string().url(),
     UMAMI_TRACKING_ID: z.string().optional(),

@@ -42,7 +42,7 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     GEOLOCATION_API_KEY: process.env.GEOLOCATION_API_KEY,
     NODE_ENV: process.env.NODE_ENV,
-    //RESEND_API_KEY: process.env.RESEND_API_KEY,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
     WEBHOOK_SECRET: process.env.WEBHOOK_SECRET,
     REDIS_URL: process.env.REDIS_URL,
     UMAMI_TRACKING_ID: process.env.UMAMI_TRACKING_ID,
